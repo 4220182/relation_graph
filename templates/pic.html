@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绘制关系图</title>
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
+		<meta name="keywords" content="graph,graphviz,pic,绘制,关系图"/>
+		<style type="text/css">
+			body, dd, dl, dt, ol, li, p, ul {
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				background: #eee;
+				font-size: 14px;
+				line-height: 28px;
+			}
+			a {
+				color: #FF0000;
+				text-decoration: none;
+				outline: none;
+			}
+			a:hover {
+				color: #f00;
+			}
+
+			.main, .lmain, .fmain, .rmain {
+				background-color: #fff;
+			}
+			.wrap {
+				margin: 0px auto;
+			}
+
+			.over {
+				overflow: hidden;
+			}
+
+			.header {
+				overflow: hidden;
+				margin: 0 auto;
+				border-bottom: 10px solid #e55202;
+				z-index: 50;
+				position: relative
+			}
+			.topBar {
+				height: 32px;
+				padding: 2px 2px 1px;
+			}
+			/*左侧内容区样式*/
+			.subleft {
+				width: 430px;
+				border: 0px solid #e55202;
+				padding: 2px 2px 1px;
+				float: left;
+				
+			}
+			/*右侧内容区样式*/
+			.subRight {
+				border: 0px solid #e55202;
+				float: left;
+				padding: 3px 3px 0px;
+				margin-left: 20px;
+				margin-top: 0px;
+				text-align:left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap header">
+			<div class="topBar">
+				<p>
+					绘制关系图，格式为:dot。<a href="https://graphviz.gitlab.io/_pages/doc/info/lang.html" target="_blank">语法参考指南</a>
+				</p>
+			</div>
+		</div>
+				<div class="wrap main">
+					<div class="subleft">
+						<form action="/add/" method="get">
+    					<textarea name="content" cols="60" rows="20" id="content">
+digraph g {
+a->b
+a->c[label="T",color="red"]
+{rank = same b c} #a b 相同一层
+label = "样例"
+}
+						</textarea>
+						<p><button type="button" id='sum'> 提 交 </button></p>
+						</form>
+
+					</div>
+					<div class="subRight">
+						<p><span id='result'></span></p>
+					</div>
+				</div>
+<script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#sum").click(function(){
+        var content = $("#content").val();
+        var picurl = encodeURIComponent(content)
+        $('#result').html('') //清空旧的数据
+        $('#result').append('<img src="/getpic?content='+picurl+'">');
+            
+      });
+    });
+</script>
+				
+	</body>
+</html>
