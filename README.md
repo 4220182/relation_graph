@@ -1,5 +1,5 @@
-#docker build -t test/graph:0.0.1 .
+***测试方法：
 
-#docker run --rm -it -p 8001:80 test/graph:0.0.1 bash
-
-#sudo python manage.py runserver 0.0.0.0:80
+1. build image: docker build -t test/graph:0.0.1 .
+2. docker run -d -p 8001:80 test/graph:0.0.1
+3. 使用浏览器访问：http://127.0.0.1:8001/
