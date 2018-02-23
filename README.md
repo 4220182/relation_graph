@@ -1,8 +1,17 @@
 ***测试方法：
 
-1. build image: docker build -t test/graph:0.0.1 .
-2. docker run -d -p 8001:80 test/graph:0.0.1
-3. 使用浏览器访问：http://127.0.0.1:8001/ 
+**方法1: 
+
+1. git clone git@github.com:4220182/relation_graph.git
+2. cd relation_graph
+2. docker build -t test/graph:0.0.1 .
+3. docker run -d -p 8001:80 test/graph:0.0.1
+4. 使用浏览器访问：http://127.0.0.1:8001/ 
+
+**方法2:
+
+1. docker run -d -p 8001:80 koza/relation-graph:0.0.1-beta1
+2. 使用浏览器访问：http://127.0.0.1:8001/ 
 
 如下：
 
